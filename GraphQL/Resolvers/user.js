@@ -87,7 +87,6 @@ const user = {
      return  new GraphQLError(error.message);
     }
   },
-
   login: async (_, { loginInput: { email, password } }) => {
     try {
 
@@ -117,7 +116,7 @@ const user = {
       throw new GraphQLError(error.message);
     }
   },
-
+  
   forgot: async (_, { email }) => {
     try {
       if (email == "") throw new GraphQLError("Please Enter the email");
@@ -226,7 +225,7 @@ const user = {
         if(id=="" || id==null){
           return new GraphQLError("Porovide the user ID");
         }
-        console.log(id);
+        // console.log(id);
         // let authUser=auth(context.token);
         // console.log(authUser);
         const deleteData=await userModel.findByIdAndDelete({_id:id})
